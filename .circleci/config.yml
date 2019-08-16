@@ -6,17 +6,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: Greeting
-          command: echo Hello, world.
-
-      - run:
-          name: Print the Current Time
-          command: date
-      - run: 
-          name: Compile
-          command: make hello
       - run:
           name: Run
-          command: ./hello
+          command: node hello.js
