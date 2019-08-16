@@ -1,12 +1,22 @@
-```yaml
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
-      - image: alpine:3.7
+      - image: debian:stretch
+
     steps:
+      - checkout
+
       - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+          name: Greeting
+          command: echo Hello, world.
+
+      - run:
+          name: Print the Current Time
+          command: date
+      - run: 
+          name: Compile
+          command: make hello
+      - run:
+          name: Run
+          command: ./hello
